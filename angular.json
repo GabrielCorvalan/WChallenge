@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "WChallenge"
+  "defaultProject": "WChallenge",
+  "cli": {
+    "analytics": "ce48122d-f14c-41b1-a993-d2b58cf8482a"
+  }
 }
