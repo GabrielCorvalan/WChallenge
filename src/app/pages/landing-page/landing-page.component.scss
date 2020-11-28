@@ -1,0 +1,157 @@
+
+@import "src/styles/variables.scss";
+
+
+.wx-txt-xbig {
+  font-size: $font-size-xbig;
+  font-weight: 700;
+}
+
+.twitter-wx {
+  display: flex;
+  align-items: center;
+  svg {
+    fill: #ffffff;
+  }
+  p {
+    padding-left: 1rem;
+    color: #ffffff;
+  }
+}
+
+
+section {
+  display: flex;
+  align-items: center;
+  min-height: auto;
+
+  .content-wrapper {
+    display: flex;
+  }
+
+  .content-wrapper {
+    .wx-image {
+      transform: scaleX(-1);
+    }
+  }
+
+  .item-woloxer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../../assets/img_woloxer.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+section.first {
+  background-image: url('../../../assets/Backgrounds/Bg_Header.png');
+  justify-content: center;
+  padding: 20vh 0;
+}
+
+
+// MIN SIZE QUERY
+
+@media only screen and (min-device-width : 290px) and (max-device-width : 480px) {
+
+
+  section {
+    .content-wrapper {
+      flex-direction: column;
+
+      .centralize {
+        align-items: center;
+      }
+
+      .item-woloxer {
+        min-height: 250px;
+      }
+
+      .box {
+        padding: 1rem 1rem 0 1rem;
+      }
+
+      .text-basic {
+        font-size: $font-size-md;
+      }
+
+      .text-ubold {
+        font-weight: 900;
+        font-size: $font-size-big;
+      }
+
+      .wx-image {
+        max-width: 100%;
+      }
+    }
+  }
+
+}
+
+@media only screen and (min-device-width : 480px) and (max-device-width : 1280px) {
+
+
+  .content-wrapper {
+
+    align-items: center;
+    flex-direction: column;
+
+    .text-basic {
+      font-size: $font-size-md;
+      max-width: 560px;
+    }
+  }
+
+}
+
+
+@media only screen and (min-device-width : 1280px) {
+
+
+  .content-wrapper {
+    width: 100%;
+    flex-direction: row;
+    .box {
+      width: 50%;
+    }
+    div.box {
+      text-align: center;
+    }
+    .text-basic {
+      font-size: $font-size-big;
+    }
+
+    .text-ubold {
+      font-weight: 900;
+      font-size: $font-size-xbig;
+    }
+
+    .item-woloxer {
+      min-height: 500px;
+    }
+
+    .item-text {
+      width: 60%;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .text-wrapper {
+      align-self: center;
+    }
+
+    .woloxer-image {
+      width: 100%;
+    }
+  }
+
+  section.first {
+    .content-wrapper {
+      max-width: 1260px;
+    }
+  }
+
+}

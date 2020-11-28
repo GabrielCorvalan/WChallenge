@@ -1,2 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
-@import "main.scss";
+@import "./styles/main.scss";
+
+.center {
+  margin: auto;
+}
+
+.text-secondary {
+  color: $secondary;
+}
+
+.text-primary {
+  color: $primary;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
