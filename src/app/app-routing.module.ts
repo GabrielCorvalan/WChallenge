@@ -8,7 +8,14 @@ const routes: Routes = [
     path: '',
     component: CoreComponent,
     children: [
-      { path: '', component: LandingPageComponent, pathMatch: 'full' }
+      { path: '', component: LandingPageComponent, pathMatch: 'full' },
+      {
+        path: 'sign-up',
+        loadChildren: () =>
+          import('./pages/sign-up/sign-up.module').then(
+            mod => mod.SignUpModule
+          )
+      }
     ]
   }
 ];

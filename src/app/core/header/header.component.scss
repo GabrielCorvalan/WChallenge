@@ -1,38 +1,59 @@
+@import "src/styles/variables.scss";
+
 nav {
-  width: 100%;
-  height: 50px;
-  background: rgba(0,0,0, .8);
-  border-top: 1px solid rgba(255,255,255, .2);
-  border-bottom: 1px solid rgba(255,255,255, .2);
-  position: sticky;
   top: 0;
-}
-
-nav ul {
+  width: 100%;
+  height: $navbar-height;
+  background: transparent;
+  position: fixed;
   display: flex;
-  margin: 0;
-  padding: 0 100px;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform .35s,opacity .2s;
 }
 
-nav ul li {
-  list-style: none;
+nav .content-wrapper {
+  transform: translateY(-65%);
 }
 
-nav ul li a {
-  display: block;
-  color: #fff;
-  padding: 0 10px;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: bold;
-  line-height: 50px; /**  Rarely used! **/
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
-  background: #f00;
-
+.logo-container {
+  display: flex;
+  color: inherit;
+  align-items: center;
 }
 
+.logo {
+  transition: color .3s;
+}
 
+.navbar-menu-container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-text {
+  color: inherit;
+  letter-spacing: 1.2px;
+  margin: 0 22px;
+  // text-transform: uppercase;
+  transition: text-shadow .3s;
+}
+
+.menu-item {
+  text-align: center;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.sign-up {
+  margin-left: 22px;
+}
