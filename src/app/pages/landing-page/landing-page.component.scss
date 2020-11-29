@@ -2,6 +2,40 @@
 @import "src/styles/variables.scss";
 
 
+h1 {
+  font-size: calc(1.3em + 2vw);
+  font-weight: 300;
+
+  .bold {
+    font-weight: 900;
+  }
+}
+
+h2 {
+  font-size: calc(1em + 1vw);
+  margin-top: 1em;
+}
+
+.text-ubold {
+  font-weight: 900;
+  font-size: calc(1.5em + 5vh);
+}
+
+.button-primary-white {
+  margin: 1em;
+  font-weight: normal;
+  padding: 0.8em 3.3em;
+
+  a {
+    text-decoration: none;
+    color: $white;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
 .wx-txt-xbig {
   font-size: $font-size-xbig;
   font-weight: 700;
@@ -10,6 +44,7 @@
 .twitter-wx {
   display: flex;
   align-items: center;
+  margin: 1em;
   svg {
     fill: #ffffff;
   }
@@ -22,20 +57,25 @@
 .card-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 150px;
+  width: 120px;
   flex-direction: column;
-  padding: 3rem;
-  margin: 0 2rem;
+  padding: 3em;
+
+  .svg-container {
+    margin-bottom: 1.3em;
+  }
 
   .text-card {
     text-align: center;
+    font-weight: 700;
   }
 }
 
@@ -98,10 +138,6 @@ section.third {
         padding: 1rem 1rem 0 1rem;
       }
 
-      .text-basic {
-        font-size: $font-size-md;
-      }
-
       .text-ubold {
         font-weight: 900;
         font-size: $font-size-big;
@@ -122,10 +158,25 @@ section.third {
 
     align-items: center;
     flex-direction: column;
+    width: 100%;
 
     .text-basic {
-      font-size: $font-size-md;
+      // font-size: $font-size-md;
       max-width: 560px;
+      text-align: center;
+    }
+
+    .wx-image {
+      max-width: 100%;
+    }
+
+    .centralize {
+      align-items: center;
+    }
+
+    .item-woloxer {
+      min-height: 500px;
+      width: 100vw;
     }
   }
 
@@ -143,14 +194,6 @@ section.third {
     }
     div.box {
       text-align: center;
-    }
-    .text-basic {
-      font-size: $font-size-big;
-    }
-
-    .text-ubold {
-      font-weight: 900;
-      font-size: $font-size-xbig;
     }
 
     .item-woloxer {
