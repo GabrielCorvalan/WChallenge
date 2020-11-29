@@ -19,6 +19,26 @@
   }
 }
 
+.card-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 150px;
+  flex-direction: column;
+  padding: 3rem;
+  margin: 0 2rem;
+
+  .text-card {
+    text-align: center;
+  }
+}
+
 
 section {
   display: flex;
@@ -50,6 +70,10 @@ section.first {
   background-image: url('../../../assets/Backgrounds/Bg_Header.png');
   justify-content: center;
   padding: 20vh 0;
+}
+
+section.third {
+  flex-direction: column;
 }
 
 
@@ -141,6 +165,7 @@ section.first {
 
     .text-wrapper {
       align-self: center;
+      // background-color: $gray;
     }
 
     .woloxer-image {

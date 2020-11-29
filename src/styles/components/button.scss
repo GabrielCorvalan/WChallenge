@@ -1,12 +1,24 @@
-.button {
-  background-color: transparent;
-  border: 1px solid $primary;
+@mixin button ($background-color, $text-color, $text-transform: uppercase, $spacing: 3px) {
   border-radius: 32px;
-  color: $primary;
   font-weight: 700;
-  letter-spacing: 3px;
   padding: 6px 24px;
-  text-transform: uppercase;
   z-index: 1;
   text-decoration: none;
+  border: 1px solid $primary;
+  letter-spacing: $spacing;
+  text-transform: $text-transform;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+.button-primary {
+  @include button(transparent, $primary)
+}
+
+.button-primary-white {
+  @include button(transparent, $white, none, 1px)
+}
+
+.button-secondary {
+  @include button($primary, $white, none, 1px)
 }

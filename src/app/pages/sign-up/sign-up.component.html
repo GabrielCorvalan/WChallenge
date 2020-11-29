@@ -1,16 +1,27 @@
-<div class="page-container">
-  <input type="text" placeholder="nombre">
-  <input type="text" placeholder="Apellido">
+<div class="page-container" >
 
-  <select>
-    <label>Pais</label>
-    <option>Argentina</option>
-    <option>Brasil</option>
-  </select>
+  <form [formGroup]="signUpForm">
+    <input type="text" formControlName="nombre" placeholder="nombre">
+    <input type="text" formControlName="apellido" placeholder="Apellido">
 
-  <input type="text" placeholder="email">
-  <input type="text" placeholder="teléfono">
-  <input type="text" placeholder="contraseña">
+    <select formControlName="idCountry">
+      <label>Pais</label>
+      <option *ngFor="let country of countries" [value]="country.id" >{{country.description}}</option>
+    </select>
+
+    <select formControlName="idCountry">
+      <label>Provincias</label>
+      <option *ngFor="let province of provinces" [value]="province.id" >{{province.description}}</option>
+    </select>
+
+    <input type="text" formControlName="email" placeholder="email">
+    <input type="text" formControlName="telefono" placeholder="teléfono">
+    <input type="text" formControlName="contrasenia" placeholder="contraseña">
+
+
+    <button type="submit" (click)="submit()">Submit</button>
+  </form>
+
 
 
 </div>

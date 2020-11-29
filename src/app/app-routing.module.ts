@@ -1,3 +1,4 @@
+import { TechListsModule } from './pages/tech-lists/tech-lists.module';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { CoreComponent } from './core/core.component';
 import { NgModule } from '@angular/core';
@@ -14,6 +15,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/sign-up/sign-up.module').then(
             mod => mod.SignUpModule
+          )
+      },
+      {
+        path: 'tech-list',
+        loadChildren: () =>
+          import('./pages/tech-lists/tech-lists.module').then(
+            mod => mod.TechListsModule
           )
       }
     ]
