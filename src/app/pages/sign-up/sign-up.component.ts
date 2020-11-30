@@ -22,7 +22,8 @@ export class SignUpComponent implements OnInit {
     apellido: ['', [Validators.maxLength(30), Validators.required]],
     email: ['', [Validators.email]],
     telefono: ['', [Validators.maxLength(10)]],
-    contrasenia: [''],
+    password: [''],
+    repeatPassword: [''],
     idCountry: ['', Validators.required]
   });
 

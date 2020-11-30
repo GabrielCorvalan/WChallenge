@@ -1,0 +1,15 @@
+.fields-container {
+  display: flex;
+  margin: 2em 1em;
+}
+
+@media only screen and (min-device-width : 290px) and (max-device-width : 480px) {
+  .fields-container {
+    flex-direction: column;
+  }
+}
+
+.page-container {
+  background-image: url('../../../assets/Backgrounds/Bg_Header.png');
+  background-repeat: repeat;
+}
