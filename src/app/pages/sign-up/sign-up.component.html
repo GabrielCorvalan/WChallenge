@@ -1,8 +1,51 @@
-<div class="page-container" >
+<div class="page-container">
 
   <form [formGroup]="signUpForm">
-    <input type="text" formControlName="nombre" placeholder="nombre">
-    <input type="text" formControlName="apellido" placeholder="Apellido">
+
+    <div class="fields-container">
+
+      <div class="input-wrapper">
+        <input formControlName="nombre" type="text" placeholder="&nbsp;">
+        <label data-label="Nombre">		</label>
+      </div>
+
+      <div class="input-wrapper">
+        <input formControlName="apellido" type="text" placeholder="&nbsp;">
+        <label data-label="Apellido"></label>
+      </div>
+
+    </div>
+
+    <div class="fields-container">
+
+      <div class="input-wrapper">
+        <input formControlName="email" type="text" placeholder="&nbsp;">
+        <label data-label="Correo Electronico"></label>
+      </div>
+
+      <div class="input-wrapper">
+        <input formControlName="telefono" type="text" placeholder="&nbsp;">
+        <label data-label="Telefono"></label>
+      </div>
+
+    </div>
+
+    <div class="fields-container">
+
+      <div class="input-wrapper">
+        <input formControlName="password" type="text" placeholder="&nbsp;">
+        <label data-label="Contraseña"></label>
+      </div>
+
+      <div class="input-wrapper">
+        <input formControlName="repeatPassword" type="text" placeholder="&nbsp;">
+        <label data-label="Repetir Contraseña"></label>
+      </div>
+
+    </div>
+
+
+    <!-- <input type="text" formControlName="apellido" placeholder="Apellido">
 
     <select formControlName="idCountry">
       <label>Pais</label>
@@ -14,14 +57,11 @@
       <option *ngFor="let province of provinces" [value]="province.id" >{{province.description}}</option>
     </select>
 
-    <input type="text" formControlName="email" placeholder="email">
-    <input type="text" formControlName="telefono" placeholder="teléfono">
-    <input type="text" formControlName="contrasenia" placeholder="contraseña">
 
-
-    <button type="submit" (click)="submit()">Submit</button>
+    <button type="submit" (click)="submit()">Submit</button> -->
   </form>
 
 
 
 </div>
+

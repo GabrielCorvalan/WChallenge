@@ -18,4 +18,5 @@
 
 .page-container {
   padding-top: $navbar-height;
+  height: calc(100vh - 100px);
 }
