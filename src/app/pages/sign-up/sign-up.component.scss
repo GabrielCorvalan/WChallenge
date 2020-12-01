@@ -1,12 +1,38 @@
 .fields-container {
   display: flex;
-  margin: 2em 1em;
+  margin: 0 1em;
 }
 
-@media only screen and (min-device-width : 290px) and (max-device-width : 480px) {
+
+@media only screen and (min-device-width : 290px) and (max-device-width : 768px) {
   .fields-container {
     flex-direction: column;
   }
+
+}
+
+@media only screen and (min-device-width : 768px) {
+  .page-container {
+    margin: 0 auto;
+    width: 714px;
+  }
+
+  .sign-up-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sign-up-card {
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    padding: 18px 32px 32px;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+}
+
+@media only screen and (min-device-width : 1280px) {
+
+
 }
 
 .page-container {

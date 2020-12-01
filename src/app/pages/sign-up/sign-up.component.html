@@ -1,51 +1,53 @@
-<div class="page-container">
+<div class="page-container" >
 
-  <form [formGroup]="signUpForm">
+  <form [formGroup]="signUpForm" class="sign-up-form">
 
-    <div class="fields-container">
+    <h1 class="title"> Unite a Wolox </h1>
+    <div class="sign-up-card">
 
-      <div class="input-wrapper">
-        <input formControlName="nombre" type="text" placeholder="&nbsp;">
-        <label data-label="Nombre">		</label>
+      <div class="fields-container">
+
+        <div class="input-wrapper">
+          <input formControlName="nombre" type="text">
+          <label data-label="Nombre">		</label>
+        </div>
+
+        <div class="input-wrapper">
+          <input formControlName="apellido" type="text">
+          <label data-label="Apellido"></label>
+        </div>
+
       </div>
 
-      <div class="input-wrapper">
-        <input formControlName="apellido" type="text" placeholder="&nbsp;">
-        <label data-label="Apellido"></label>
+      <div class="fields-container">
+
+        <div class="input-wrapper">
+          <input formControlName="email" type="text">
+          <label data-label="Correo Electronico"></label>
+        </div>
+
+        <div class="input-wrapper">
+          <input formControlName="telefono" type="text">
+          <label data-label="Telefono"></label>
+        </div>
+
+      </div>
+
+      <div class="fields-container">
+
+        <div class="input-wrapper">
+          <input formControlName="password" type="password">
+          <label data-label="Contraseña"></label>
+        </div>
+
+        <div class="input-wrapper">
+          <input formControlName="repeatPassword" type="password">
+          <label data-label="Repetir Contraseña"></label>
+        </div>
+
       </div>
 
     </div>
-
-    <div class="fields-container">
-
-      <div class="input-wrapper">
-        <input formControlName="email" type="text" placeholder="&nbsp;">
-        <label data-label="Correo Electronico"></label>
-      </div>
-
-      <div class="input-wrapper">
-        <input formControlName="telefono" type="text" placeholder="&nbsp;">
-        <label data-label="Telefono"></label>
-      </div>
-
-    </div>
-
-    <div class="fields-container">
-
-      <div class="input-wrapper">
-        <input formControlName="password" type="text" placeholder="&nbsp;">
-        <label data-label="Contraseña"></label>
-      </div>
-
-      <div class="input-wrapper">
-        <input formControlName="repeatPassword" type="text" placeholder="&nbsp;">
-        <label data-label="Repetir Contraseña"></label>
-      </div>
-
-    </div>
-
-
-    <!-- <input type="text" formControlName="apellido" placeholder="Apellido">
 
     <select formControlName="idCountry">
       <label>Pais</label>
@@ -60,8 +62,6 @@
 
     <button type="submit" (click)="submit()">Submit</button> -->
   </form>
-
-
 
 </div>
 

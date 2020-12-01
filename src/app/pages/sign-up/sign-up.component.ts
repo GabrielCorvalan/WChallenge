@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignUpService } from './sign-up.service';
 
@@ -24,8 +24,8 @@ export class SignUpComponent implements OnInit {
     telefono: ['', [Validators.maxLength(10)]],
     password: [''],
     repeatPassword: [''],
-    idCountry: ['', Validators.required]
-  });
+    idCountry: ['']
+  }, {validators: this.password});
 
   ngOnInit(): void {
     this.countries = this._sigUpService.getCountries();
@@ -45,6 +45,12 @@ export class SignUpComponent implements OnInit {
     console.log(this.signUpForm.getRawValue());
 
     this._router.navigate(['/tech-list']);
+  }
+
+  password(control: AbstractControl): any {
+    if (control.get('password')?.value !== control.get('repeatPassword')?.value) {
+        return {invalid: true};
+    }
   }
 
 
