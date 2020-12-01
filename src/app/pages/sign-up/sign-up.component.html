@@ -36,6 +36,25 @@
 
       <div class="fields-container">
 
+        <div class="select">
+          <select formControlName="idCountry">
+            <label>Pais</label>
+            <option *ngFor="let country of countries" [value]="country.id" >{{country.description}}</option>
+          </select>
+          <span class="focus"></span>
+        </div>
+
+        <div class="select">
+          <select formControlName="idCountry">
+            <label>Provincias</label>
+            <option *ngFor="let province of provinces" [value]="province.id" >{{province.description}}</option>
+          </select>
+          <span class="focus"></span>
+        </div>
+      </div>
+
+      <div class="fields-container">
+
         <div class="input-wrapper">
           <input formControlName="password" type="password">
           <label data-label="Contraseña"></label>
@@ -61,18 +80,10 @@
     </div>
 
     <button class="sign-up button-primary">Sign Up</button>
-    <!-- <select formControlName="idCountry">
-      <label>Pais</label>
-      <option *ngFor="let country of countries" [value]="country.id" >{{country.description}}</option>
-    </select>
-
-    <select formControlName="idCountry">
-      <label>Provincias</label>
-      <option *ngFor="let province of provinces" [value]="province.id" >{{province.description}}</option>
-    </select>
 
 
-    <button type="submit" (click)="submit()">Submit</button> -->
+
+
   </form>
 
 </div>
