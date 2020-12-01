@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignUpService } from './sign-up.service';
 
@@ -20,12 +20,12 @@ export class SignUpComponent implements OnInit {
   signUpForm = this.fb.group({
     nombre: ['', [Validators.maxLength(30), Validators.required]],
     apellido: ['', [Validators.maxLength(30), Validators.required]],
-    email: ['', [Validators.email]],
-    telefono: ['', [Validators.maxLength(10)]],
-    password: [''],
-    repeatPassword: [''],
-    idCountry: ['', Validators.required]
-  });
+    email: ['', [Validators.email, Validators.required]],
+    telefono: ['', [Validators.maxLength(10), Validators.required]],
+    password: ['', [Validators.required]],
+    repeatPassword: ['', [Validators.required]],
+    idCountry: ['']
+  }, {validators: this.password});
 
   ngOnInit(): void {
     this.countries = this._sigUpService.getCountries();
@@ -47,5 +47,16 @@ export class SignUpComponent implements OnInit {
     this._router.navigate(['/tech-list']);
   }
 
+  password(group: AbstractControl): any {
+
+    const password = group.get('password');
+    const repeatPassword = group.get('repeatPassword');
+
+    if (password?.value && repeatPassword?.value && (password?.value !== repeatPassword?.value)) {
+      return group.get('repeatPassword')?.setErrors({passwordNotMatch: true});
+    }
+
+    return group.get('repeatPassword')?.setErrors(null);
+  }
 
 }

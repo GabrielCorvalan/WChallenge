@@ -1,24 +1,26 @@
 .input-wrapper {
   position: relative;
-  margin: 0.3em 15px;
+  margin: .7em 0;
+  width: 100%;
 	input {
-		&[type="text"] {
+
+    outline: none;
+    &.ng-invalid.ng-touched {
+      border: 1px solid red;
+      color: red;
+    }
+
+    box-sizing: border-box;
+		&[type="text"], &[type="password"]  {
 			display: block;
-			width: 92%;
-			height: 34px;
+			width: 100%;
+			height: 42px;
 			font-size: 14px;
 			line-height: 1.4;
 			color: #000000;
-      border: .05rem solid rgba(18,38,170,.05);
       background: rgba(18,38,170,.05);
-      padding: 6px 12px 0 12px;
+      padding: 6px 0 0 12px;
       border-radius: 6px;
-			&:focus, &:active {
-				outline: none;
-				box-shadow: none;
-        color: #000000;
-        border-color: $primary;
-			}
 			&:focus {
 				~ label {
 					&:before {
@@ -34,7 +36,20 @@
             top: 3px;
 					}
 				}
-			}
+      }
+      &:disabled {
+        border: .05rem dashed #4a4f54;
+      }
+      &:enabled.ng-valid, &:enabled.ng-untouched {
+        border: .05rem solid rgba(18,38,170,.05);
+        &:focus, &:active {
+          outline: none;
+          box-shadow: none;
+          color: #000000;
+          border-color: $primary;
+        }
+      }
+
 			&:not(:placeholder-shown) {
 				~ label {
 					&:before {
@@ -44,7 +59,8 @@
             top: 3px;
 					}
 				}
-			}
+      }
+
 		}
 	}
 	label {
@@ -75,4 +91,8 @@
 			background-size: 200% 200%;
 		}
 	}
+}
+
+form.submitted input.ng-invalid, input.ng-dirty.ng-invalid {
+  border: 1px solid red;
 }

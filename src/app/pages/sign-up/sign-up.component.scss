@@ -1,12 +1,59 @@
 .fields-container {
   display: flex;
-  margin: 2em 1em;
 }
 
-@media only screen and (min-device-width : 290px) and (max-device-width : 480px) {
+.sign-up {
+  align-self: flex-start;
+  margin: 1em 0;
+}
+
+.tyc-container {
+  display: flex;
+  .tyc-container_terms {
+    font-size: .7rem;
+    margin: auto auto auto .5rem;
+    line-height: 1.25rem;
+    color: rgba(0,0,0,.45);
+  }
+}
+
+@media only screen and (min-device-width : 290px) and (max-device-width : 768px) {
   .fields-container {
     flex-direction: column;
   }
+
+  .page-container {
+    padding: 20px 32px 0;
+  }
+
+}
+
+@media only screen and (min-device-width : 768px) {
+  .page-container {
+    margin: 0 auto;
+    width: 714px;
+  }
+
+  .sign-up-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sign-up-card {
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    padding: 18px 32px 32px;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+
+  .fields-container {
+    gap: 1em;
+  }
+}
+
+@media only screen and (min-device-width : 1280px) {
+
+
 }
 
 .page-container {
