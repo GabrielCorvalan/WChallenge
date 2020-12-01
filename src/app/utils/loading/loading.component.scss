@@ -1,0 +1,36 @@
+
+.loader{
+  position: relative;
+  float: left;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($color: white, $alpha: 0.5);
+  z-index: 99;
+  .fa {
+      animation-iteration-count: infinite;
+      animation-name: loader;
+      animation-duration: 1s;
+      font-size: 3rem;
+      animation-timing-function: linear;
+      color: #0072bb;
+  }
+}
+
+@keyframes loader{
+  from{
+      transform: rotate(0deg);
+  }
+  to{
+      transform: rotate(359deg);
+  }
+}
