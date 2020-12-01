@@ -9,6 +9,10 @@
   text-transform: $text-transform;
   background-color: $background-color;
   color: $text-color;
+  cursor: pointer;
+  &:focus {
+    outline:none;
+  }
 }
 
 .button-primary {
