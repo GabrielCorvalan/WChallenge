@@ -1,3 +1,4 @@
+import { LoadingService } from './../../utils/loading/loading.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SignUpComponent } from './sign-up.component';
@@ -23,6 +24,7 @@ import { FormSubmitDirective } from 'src/app/utils/forms/form-submit.directive';
     SignUpRoutingModule,
     ReactiveFormsModule
   ],
-  entryComponents: [ControlErrorComponent]
+  entryComponents: [ControlErrorComponent],
+  bootstrap: [LoadingService]
 })
 export class SignUpModule { }

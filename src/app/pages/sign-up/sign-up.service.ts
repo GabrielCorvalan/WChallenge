@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -28,11 +29,11 @@ export class SignUpService {
   constructor() { }
 
 
-  getCountries(): Array<any> {
-    return this.paises;
+  getCountries(): Observable<Array<any>> {
+    return of(this.paises).pipe(delay(200));
   }
 
-  getProvinciasByCountry(idPais: number): Array<any> {
-    return this.provincias.filter(provincia => provincia.idPais == idPais);
+  getProvinciasByCountry(idPais: number): Observable<Array<any>> {
+    return of(this.provincias.filter(provincia => provincia.idPais == idPais)).pipe(delay(3000));
   }
 }

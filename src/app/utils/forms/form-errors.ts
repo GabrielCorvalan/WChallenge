@@ -3,8 +3,8 @@ import { InjectionToken } from '@angular/core';
 export const defaultErrors = {
   required: () => `Este campo es requerido`,
   'Mask error': () => `Complete el campo correctamente`,
-  minlength: ({ requiredLength, actualLength }: any) => `Debe haber ${requiredLength} caracteres, hay ${actualLength}`,
-  maxlength: ({ requiredLength, actualLength }: any) => `Debe haber ${requiredLength} caracteres, hay ${actualLength}`,
+  minlength: ({ requiredLength, actualLength }: any) => `Debe haber ${requiredLength} caracteres al menos, hay ${actualLength}`,
+  maxlength: ({ requiredLength, actualLength }: any) => `Debe haber ${requiredLength} caracteres como maximo, hay ${actualLength}`,
   passwordNotMatch: () => `Las contraseñas no coinciden`,
   email: () => `Ingrese un correo electronico válido`,
 }
