@@ -1,6 +1,8 @@
+import { LoadingService } from './../../utils/loading/loading.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { finalize, switchMap, tap } from 'rxjs/operators';
 import { SignUpService } from './sign-up.service';
 
 @Component({
@@ -12,9 +14,11 @@ export class SignUpComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private _sigUpService: SignUpService,
-              private _router: Router) { }
+              private _router: Router,
+              private _loadingService: LoadingService) { }
 
-  countries: Array<any> = [];
+  customErrors = {required: 'Debe aceptar los terminos y condiciones para poder registrarse'}
+  countries = this._sigUpService.getCountries();
   provinces: Array<any> = [];
 
   signUpForm = this.fb.group({
@@ -22,19 +26,28 @@ export class SignUpComponent implements OnInit {
     apellido: ['', [Validators.maxLength(30), Validators.required]],
     email: ['', [Validators.email, Validators.required]],
     telefono: ['', [Validators.maxLength(10), Validators.required]],
-    password: ['', [Validators.required]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
     repeatPassword: ['', [Validators.required]],
-    idCountry: ['']
+    country: [''],
+    province: [''],
+    termsAndConditions: [null, [Validators.requiredTrue]]
   }, {validators: this.password});
 
   ngOnInit(): void {
-    this.countries = this._sigUpService.getCountries();
 
     this.signUpForm
-      .get('idCountry')?.valueChanges
-      .subscribe((country) => {
-        this.provinces = this._sigUpService.getProvinciasByCountry(country);
-      });
+      .get('country')?.valueChanges
+      .pipe(
+        tap(() => this._loadingService.show()),
+        switchMap(
+          (country) =>
+            this._sigUpService.getProvinciasByCountry(country)
+            .pipe(finalize(() => this._loadingService.hide()))
+        )
+      )
+      .subscribe(
+        (provinces) => this.provinces = provinces
+      );
 
   }
 

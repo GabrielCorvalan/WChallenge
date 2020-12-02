@@ -1,5 +1,21 @@
 
-.loader{
+.spinner {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-top-color: #444;
+  border-left-color: #444;
+  animation: spinner 400ms linear infinite;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.loader {
   position: relative;
   float: left;
   width: 100%;
@@ -16,21 +32,27 @@
   height: 100vh;
   background-color: rgba($color: white, $alpha: 0.5);
   z-index: 99;
-  .fa {
-      animation-iteration-count: infinite;
-      animation-name: loader;
-      animation-duration: 1s;
-      font-size: 3rem;
-      animation-timing-function: linear;
-      color: #0072bb;
-  }
 }
 
-@keyframes loader{
-  from{
-      transform: rotate(0deg);
-  }
-  to{
-      transform: rotate(359deg);
-  }
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
+
+.spinner-large {
+  width: 5rem;
+  height: 5rem;
+  border-width: 6px;
+}
+
+.spinner-slow {
+  animation: spinner 1s linear infinite;
+}
+
+.spinner-blue {
+  border-top-color: #09d;
+  border-left-color: #09d;
+}
+
+
+

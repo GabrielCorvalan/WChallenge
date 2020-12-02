@@ -58,7 +58,8 @@ h2 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  // justify-content: center;
+  width: 90vw;
 }
 
 .card {
@@ -147,6 +148,10 @@ section.third {
         max-width: 100%;
       }
     }
+
+    .card-container {
+      justify-content: center;
+    }
   }
 
 }
@@ -178,6 +183,10 @@ section.third {
       min-height: 500px;
       width: 100vw;
     }
+  }
+
+  .card-container {
+    justify-content: center;
   }
 
 }
@@ -220,6 +229,10 @@ section.third {
     .content-wrapper {
       max-width: 1260px;
     }
+  }
+
+  .card-container {
+    justify-content: space-between;
   }
 
 }
