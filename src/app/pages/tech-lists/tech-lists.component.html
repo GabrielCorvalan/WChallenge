@@ -1,3 +1,35 @@
 <div class="page-container">
-  {{ techs | json }}
+
+  <div class="input-wrapper">
+    <input [formControl]="search" type="text" class="form-control">
+    <label data-label="Busqueda">	</label>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Logo</th>
+        <th (click)="setOrderProperty('tech')" >Tecnologia</th>
+        <th>Año</th>
+        <th>Autor</th>
+        <th>Licencia</th>
+        <th>Lenguaje</th>
+        <th>Tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tech of techs | orderBy: order.orderProperty : order.type">
+        <td data-label="Logo">
+          <img class="tech-logo" [src]="tech.logo">
+        </td>
+        <td data-label="Tecnologia">{{tech.tech}}</td>
+        <td data-label="Año">{{tech.year}}</td>
+        <td data-label="Autor">{{tech.author}}</td>
+        <td data-label="Licencia">{{tech.license}}</td>
+        <td data-label="Lenguaje">{{tech.language}}</td>
+        <td data-label="Tipo">{{tech.type}}</td>
+      </tr>
+    </tbody>
+  </table>
+
 </div>

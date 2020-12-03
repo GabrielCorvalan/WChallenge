@@ -20,8 +20,8 @@
     </a>
     <div class="navbar-menu-container">
       <div class="navbar-menu">
-        <a class="menu-item navbar-text bold"> Inicio </a>
-        <a class="menu-item navbar-text bold"> Beneficios </a>
+        <a [routerLink]="['/']" class="menu-item navbar-text bold"> Inicio </a>
+        <a [routerLink]="['/']" fragment="benefits" class="menu-item navbar-text bold"> Beneficios </a>
       </div>
       <a *ngIf="!authService.isLogged" routerLink="/sign-up" class="sign-up button-primary">Sign Up</a>
     </div>

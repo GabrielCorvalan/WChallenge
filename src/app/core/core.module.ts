@@ -9,9 +9,7 @@ import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
-    CoreComponent,
-
-    LoadingComponent
+    CoreComponent
   ],
   imports: [
     CommonModule,
