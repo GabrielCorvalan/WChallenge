@@ -23,7 +23,7 @@
         <a class="menu-item navbar-text bold"> Inicio </a>
         <a class="menu-item navbar-text bold"> Beneficios </a>
       </div>
-      <a routerLink="/sign-up" class="sign-up button-primary">Sign Up</a>
+      <a *ngIf="!authService.isLogged" routerLink="/sign-up" class="sign-up button-primary">Sign Up</a>
     </div>
   </div>
 </nav>

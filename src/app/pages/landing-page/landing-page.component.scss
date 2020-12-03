@@ -110,7 +110,6 @@ section {
 section.first {
   background-image: url('../../../assets/Backgrounds/Bg_Header.png');
   justify-content: center;
-  padding: 20vh 0;
 }
 
 section.third {
@@ -124,6 +123,7 @@ section.third {
 
 
   section {
+
     .content-wrapper {
       flex-direction: column;
 
@@ -185,6 +185,10 @@ section.third {
     }
   }
 
+  .first {
+    padding: 10vh 0;
+  }
+
   .card-container {
     justify-content: center;
   }
@@ -226,6 +230,7 @@ section.third {
   }
 
   section.first {
+    padding: 20vh 0;
     .content-wrapper {
       max-width: 1260px;
     }

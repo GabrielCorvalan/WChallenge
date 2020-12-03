@@ -1,0 +1,9 @@
+{
+  "/api": {
+    "target": "http://private-8e8921-woloxfrontendinverview.apiary-mock.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "pathRewrite": {"^/api" : ""}
+  }
+}

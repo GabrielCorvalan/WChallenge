@@ -1,3 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
+import { SignUpService } from './sign-up.service';
 import { LoadingService } from './../../utils/loading/loading.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -22,9 +24,11 @@ import { FormSubmitDirective } from 'src/app/utils/forms/form-submit.directive';
   imports: [
     CommonModule,
     SignUpRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+  ],
+  bootstrap: [
+    LoadingService
   ],
   entryComponents: [ControlErrorComponent],
-  bootstrap: [LoadingService]
 })
 export class SignUpModule { }

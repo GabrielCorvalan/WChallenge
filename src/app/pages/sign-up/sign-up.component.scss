@@ -18,6 +18,12 @@
   }
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 @media only screen and (min-device-width : 290px) and (max-device-width : 768px) {
   .fields-container {
     flex-direction: column;

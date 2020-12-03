@@ -1,6 +1,6 @@
 <div class="page-container" >
 
-  <form [formGroup]="signUpForm" class="sign-up-form">
+  <form [formGroup]="signUpForm" class="sign-up-form" (ngSubmit)="signUp()">
 
     <h1 class="title"> Unite a Wolox </h1>
     <div class="sign-up-card">
@@ -8,12 +8,12 @@
       <div class="fields-container">
 
         <div class="input-wrapper">
-          <input formControlName="nombre" type="text" class="form-control">
+          <input formControlName="name" type="text" class="form-control">
           <label data-label="Nombre">		</label>
         </div>
 
         <div class="input-wrapper">
-          <input formControlName="apellido" type="text">
+          <input formControlName="last_name" type="text">
           <label data-label="Apellido"></label>
         </div>
 
@@ -22,12 +22,12 @@
       <div class="fields-container">
 
         <div class="input-wrapper">
-          <input formControlName="email" type="text">
+          <input formControlName="mail" type="text">
           <label data-label="Correo Electronico"></label>
         </div>
 
         <div class="input-wrapper">
-          <input formControlName="telefono" type="text">
+          <input formControlName="phone" type="text">
           <label data-label="Telefono"></label>
         </div>
 
@@ -35,21 +35,26 @@
 
       <div class="fields-container">
 
-        <div class="select">
-          <select formControlName="country">
-            <label>Pais</label>
-            <option *ngFor="let country of countries | async" [value]="country.id" >{{country.description}}</option>
-          </select>
-          <span class="focus"></span>
+        <div class="container" >
+          <div class="select" controlErrorContainer>
+            <select formControlName="country">
+              <label>Pais</label>
+              <option *ngFor="let country of countries" [ngValue]="country" >{{country.description}}</option>
+            </select>
+            <span class="focus"></span>
+          </div>
         </div>
 
-        <div class="select">
-          <select formControlName="province">
-            <label>Provincias</label>
-            <option *ngFor="let province of provinces" [value]="province.id" >{{province.description}}</option>
-          </select>
-          <span class="focus"></span>
+        <div class="container" >
+          <div class="select" controlErrorContainer>
+            <select formControlName="province">
+              <label>Provincias</label>
+              <option *ngFor="let province of provinces" [ngValue]="province" >{{province.description}}</option>
+            </select>
+            <span class="focus"></span>
+          </div>
         </div>
+
       </div>
 
       <div class="fields-container">

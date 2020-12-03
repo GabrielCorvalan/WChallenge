@@ -1,3 +1,4 @@
+import { AuthService } from './../../utils/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  token$: any;
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
   }

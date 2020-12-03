@@ -10,7 +10,7 @@ import { HeaderComponent } from './header/header.component';
 @NgModule({
   declarations: [
     CoreComponent,
-    HeaderComponent,
+
     LoadingComponent
   ],
   imports: [
