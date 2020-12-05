@@ -15,7 +15,7 @@
   }
 }
 
-.button-primary {
+.button-outline-primary {
   @include button(transparent, $primary)
 }
 
@@ -24,5 +24,9 @@
 }
 
 .button-secondary {
+  @include button($primary, $white, none, 1px)
+}
+
+.button-primary {
   @include button($primary, $white, none, 1px)
 }

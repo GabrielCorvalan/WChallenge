@@ -60,9 +60,9 @@ export class SignUpComponent implements OnInit {
 
   signUp(): void {
 
-    this._loadingService.show();
     if (this.signUpForm.invalid) { return; }
 
+    this._loadingService.show();
     const user = this.signUpForm.getRawValue();
     user.province = user.province.description;
     user.country = user.country.description;

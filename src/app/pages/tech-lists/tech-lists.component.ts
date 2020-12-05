@@ -108,6 +108,15 @@ export class TechListsComponent implements OnInit {
     this.searchControl.setValue(this.searchControl.value);
   }
 
+  ShowHideFilters(): void {
+    const element = document.getElementById('filter-wrapper');
+    if (element?.classList.contains('display-none')) {
+      element?.classList.remove('display-none');
+    } else {
+      element?.classList.add('display-none');
+    }
+  }
+
   get orderIsAsc(): boolean {
     return this.order.type === 'asc';
   }

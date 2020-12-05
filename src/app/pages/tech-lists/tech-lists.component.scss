@@ -1,4 +1,5 @@
 
+@import 'src/styles/variables.scss';
 .tech-logo {
   width: 32px;
 }
@@ -65,10 +66,24 @@ table th {
     font-weight: bold;
   }
 
-  .page-container {
-    padding-top: 0
-  };
+  .filters-wrapper {
+    padding: 1.5rem;
+    transform: translateY(0%);
+  }
 
+  .search-filters {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .filter {
+    padding: .3rem 0;
+  }
+
+  .display-none {
+    display: none;
+  }
 }
 
 .fav-button {
@@ -80,7 +95,6 @@ table th {
 }
 
 .order-icon {
-  // float: right;
   cursor: pointer;
 }
 
@@ -90,7 +104,7 @@ table th {
 }
 
 .active {
-  color: red;
+  color: $primary;
 }
 
 .techs-number {
@@ -98,7 +112,22 @@ table th {
   width: 15rem;
   border-radius: 1rem;
   text-align: center;
-  color: white;
+  color: $white;
   margin: 1rem;
   align-self: center;
+}
+
+.button-primary {
+  width: 10rem;
+  height: 2rem;
+}
+
+@media screen and (min-width: 600px) {
+  .filters-wrapper {
+    display: none;
+  }
+
+  .button-primary {
+    display: none;
+  }
 }
