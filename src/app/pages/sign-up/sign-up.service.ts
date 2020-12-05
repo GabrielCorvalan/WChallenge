@@ -1,3 +1,5 @@
+import { IUser } from './../../interfaces/IUser';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
@@ -26,7 +28,7 @@ export class SignUpService {
     { id: 8, idPais: 4, description: 'Caracas' },
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
 
   getCountries(): Observable<Array<any>> {
@@ -35,5 +37,12 @@ export class SignUpService {
 
   getProvinciasByCountry(idPais: number): Observable<Array<any>> {
     return of(this.provincias.filter(provincia => provincia.idPais == idPais)).pipe(delay(3000));
+  }
+
+  signUp(payload: IUser): Observable<any> {
+    return of({
+      token: 'qiowAS9ndnjLKSS32LaLAPlDKL2'
+    })
+    // return this.http.post(`${environment.url}/signup`, payload);
   }
 }

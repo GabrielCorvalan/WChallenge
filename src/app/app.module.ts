@@ -5,20 +5,35 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
-import { ControlErrorComponent } from './utils/forms/control-error/control-error.component';
-import { ControlErrorContainerDirective } from './utils/forms/form-control-error-container.directive';
-import { ControlErrorsDirective } from './utils/forms/form-control-error.directive';
-import { FormSubmitDirective } from './utils/forms/form-submit.directive';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './core/header/header.component';
+import { LoadingComponent } from './utils/loading/loading.component';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent
+    HeaderComponent,
+    LandingPageComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

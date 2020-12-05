@@ -1,3 +1,5 @@
+import { LocalStorageService } from './../../utils/local-storage.service';
+import { IUser } from './../../interfaces/IUser';
 import { LoadingService } from './../../utils/loading/loading.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
@@ -15,25 +17,30 @@ export class SignUpComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private _sigUpService: SignUpService,
               private _router: Router,
-              private _loadingService: LoadingService) { }
+              private _loadingService: LoadingService,
+              private _localStorageService: LocalStorageService) { }
 
   customErrors = {required: 'Debe aceptar los terminos y condiciones para poder registrarse'}
-  countries = this._sigUpService.getCountries();
+  countries: Array<any> = [];
   provinces: Array<any> = [];
 
   signUpForm = this.fb.group({
-    nombre: ['', [Validators.maxLength(30), Validators.required]],
-    apellido: ['', [Validators.maxLength(30), Validators.required]],
-    email: ['', [Validators.email, Validators.required]],
-    telefono: ['', [Validators.maxLength(10), Validators.required]],
+    name: ['', [Validators.maxLength(30), Validators.required]],
+    last_name: ['', [Validators.maxLength(30), Validators.required]],
+    mail: ['', [Validators.email, Validators.required]],
+    phone: ['', [Validators.maxLength(10), Validators.required]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     repeatPassword: ['', [Validators.required]],
-    country: [''],
-    province: [''],
+    country: ['', [Validators.required]],
+    province: ['', [Validators.required]],
     termsAndConditions: [null, [Validators.requiredTrue]]
   }, {validators: this.password});
 
   ngOnInit(): void {
+
+    this._sigUpService
+      .getCountries()
+      .subscribe((response) => this.countries = response)
 
     this.signUpForm
       .get('country')?.valueChanges
@@ -41,7 +48,7 @@ export class SignUpComponent implements OnInit {
         tap(() => this._loadingService.show()),
         switchMap(
           (country) =>
-            this._sigUpService.getProvinciasByCountry(country)
+            this._sigUpService.getProvinciasByCountry(country.id)
             .pipe(finalize(() => this._loadingService.hide()))
         )
       )
@@ -51,13 +58,27 @@ export class SignUpComponent implements OnInit {
 
   }
 
-  submit(): void {
+  signUp(): void {
 
-    if (this.signUpForm.invalid) return;
+    if (this.signUpForm.invalid) { return; }
 
-    console.log(this.signUpForm.getRawValue());
+    this._loadingService.show();
+    const user = this.signUpForm.getRawValue();
+    user.province = user.province.description;
+    user.country = user.country.description;
+    delete user.termsAndConditions;
+    delete user.repeatPassword;
 
-    this._router.navigate(['/tech-list']);
+    this._sigUpService.signUp(user).pipe(
+      finalize(() => this._loadingService.hide())
+    )
+    .subscribe(
+      response =>  {
+        this._localStorageService.setStorageItem('token', response.token);
+        this._router.navigate(['/tech-list']);
+      }
+    )
+
   }
 
   password(group: AbstractControl): any {

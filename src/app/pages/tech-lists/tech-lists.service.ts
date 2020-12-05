@@ -1,3 +1,4 @@
+import { ITech } from './../../interfaces/ITech';
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -11,7 +12,7 @@ export class TechListsService {
 
   constructor(private http: HttpClient) { }
 
-  getTechs(): Observable<any> {
-    return this.http.get(`${environment.url}/techs`);
+  getTechs(): Observable<Array<ITech>> {
+    return this.http.get<Array<ITech>>(`${environment.url}/techs`);
   }
 }

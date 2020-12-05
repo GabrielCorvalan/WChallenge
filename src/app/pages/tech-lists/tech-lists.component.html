@@ -1,3 +1,116 @@
 <div class="page-container">
-  {{ techs | json }}
+
+  <div class="search-filters">
+    <div class="input-wrapper">
+      <input [formControl]="searchControl" type="text" class="form-control">
+      <label data-label="Busqueda">	</label>
+    </div>
+
+    <button class="button-primary" (click)="ShowHideFilters()">Filtros <i class="fas fa-filter"></i> </button>
+
+  </div>
+
+  <div class="filters-wrapper" id="filter-wrapper">
+    <div class="filter">Tecnologia
+      <i (click)="setOrderProperty('tech')"
+        class="fas order-icon"
+        [ngClass]="{'fa-arrow-down': orderIsAsc, 'fa-arrow-up': !orderIsAsc}"
+      ></i>
+      <i class="fas fa-filter filter-icon" [class.active]="isFilterActive('tech')"
+          (click)="filteredProperty('tech')">
+      </i>
+    </div>
+    <div class="filter">Año
+      <i class="fas fa-filter filter-icon" [class.active]="isFilterActive('year')"
+          (click)="filteredProperty('year')">
+      </i>
+    </div>
+
+    <div class="filter">Autor
+      <i class="fas fa-filter filter-icon" [class.active]="isFilterActive('author')"
+          (click)="filteredProperty('author')">
+      </i>
+    </div>
+    <div class="filter">Licencia
+      <i class="fas fa-filter filter-icon" [class.active]="isFilterActive('license')"
+          (click)="filteredProperty('license')">
+      </i>
+    </div>
+    <div class="filter">Lenguaje
+      <i class="fas fa-filter filter-icon" [class.active]="isFilterActive('language')"
+          (click)="filteredProperty('language')">
+      </i>
+    </div>
+    <div class="filter">Tipo
+      <i class="fas fa-filter filter-icon" [class.active]="isFilterActive('type')"
+          (click)="filteredProperty('type')">
+      </i>
+    </div>
+
+  </div>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Logo</th>
+        <th>Tecnologia
+          <i (click)="setOrderProperty('tech')"
+            class="fas order-icon"
+            [ngClass]="{'fa-arrow-down': orderIsAsc, 'fa-arrow-up': !orderIsAsc}"
+          ></i>
+          <i class="fas fa-filter filter-icon" [class.active]="isFilterActive('tech')"
+              (click)="filteredProperty('tech')">
+          </i>
+        </th>
+        <th>Año
+          <i class="fas fa-filter filter-icon" [class.active]="isFilterActive('year')"
+              (click)="filteredProperty('year')">
+          </i>
+        </th>
+        <th>Autor
+          <i class="fas fa-filter filter-icon" [class.active]="isFilterActive('author')"
+              (click)="filteredProperty('author')">
+          </i>
+        </th>
+        <th>Licencia
+          <i class="fas fa-filter filter-icon" [class.active]="isFilterActive('license')"
+              (click)="filteredProperty('license')">
+          </i>
+        </th>
+        <th>Lenguaje
+          <i class="fas fa-filter filter-icon" [class.active]="isFilterActive('language')"
+              (click)="filteredProperty('language')">
+          </i>
+        </th>
+        <th>Tipo
+          <i class="fas fa-filter filter-icon" [class.active]="isFilterActive('type')"
+              (click)="filteredProperty('type')">
+          </i>
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tech of filteredTechs | orderBy: order.orderProperty : order.type">
+        <td data-label="Logo">
+          <img class="tech-logo" [src]="tech.logo">
+        </td>
+        <td data-label="Tecnologia">{{tech.tech}}</td>
+        <td data-label="Año">{{tech.year}}</td>
+        <td data-label="Autor">{{tech.author}}</td>
+        <td data-label="Licencia">{{tech.license}}</td>
+        <td data-label="Lenguaje">{{tech.language}}</td>
+        <td data-label="Tipo">{{tech.type}}</td>
+        <td>
+          <i (click)="saveFavorite(tech.tech)" class="fav-button fa-heart" [ngClass]="{'fas faved': isFavorite(tech.tech), 'far': !isFavorite(tech.tech)}"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="techs-number">
+    <p class="badge-wrapper">Cantidad de tecnologias: <span class="badge">{{filteredTechs.length}}</span></p>
+  </div>
+
 </div>
