@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   }
 
   get numberFavoritesTechs(): any {
-    return this.localStorageService.getStorageItem('favoritesTechs').filter((tech: any) => tech.isFavorite).length;
+    return this.localStorageService.getStorageItem('favoritesTechs')?.filter((tech: any) => tech.isFavorite).length;
   }
 
   changeLanguage(lang: string): void {
