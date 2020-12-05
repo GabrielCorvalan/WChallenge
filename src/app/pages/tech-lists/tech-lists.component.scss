@@ -6,6 +6,8 @@
 .page-container {
   background-image: url('../../../assets/Backgrounds/Bg_Header.png');
   background-repeat: repeat;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -63,4 +65,40 @@ table th {
     font-weight: bold;
   }
 
-  }
+  .page-container {
+    padding-top: 0
+  };
+
+}
+
+.fav-button {
+  cursor: pointer;
+}
+
+.faved {
+  color: red;
+}
+
+.order-icon {
+  // float: right;
+  cursor: pointer;
+}
+
+.filter-icon {
+  cursor: pointer;
+  float: right;
+}
+
+.active {
+  color: red;
+}
+
+.techs-number {
+  padding: 1rem;
+  width: 15rem;
+  border-radius: 1rem;
+  text-align: center;
+  color: white;
+  margin: 1rem;
+  align-self: center;
+}

@@ -74,15 +74,10 @@ export class SignUpComponent implements OnInit {
     )
     .subscribe(
       response =>  {
-        this._localStorageService.setStorageItem({
-          key: 'token',
-          value: response.token,
-          storageType: 'localStorage'
-        });
+        this._localStorageService.setStorageItem('token', response.token);
         this._router.navigate(['/tech-list']);
       }
     )
-
 
   }
 
