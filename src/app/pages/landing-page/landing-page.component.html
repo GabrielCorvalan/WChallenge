@@ -1,7 +1,7 @@
 <section class="first">
 
   <div class="content-wrapper centralize">
-    <h1 class="box text-basic">Bienvenido a tu <strong class="capitalize bold">entrevista tecnica</strong> en <strong class="text-secondary">Wolox</strong></h1>
+    <h1 class="box text-basic" [innerHTML]="'TITLE' | translate"></h1>
 
     <div class="box">
       <img class="wx-image" src="../../../assets/Img_Hero/Ic_ilustra_Hero.png">
@@ -15,7 +15,7 @@
   <div class="content-wrapper">
     <div class="item-woloxer box">
       <!-- <img class="woloxer-image" src="../../../assets/img_woloxer.png"> -->
-      <p><b class="text-ubold text-secondary">350+ </b> <b class="text-ubold text-primary">Woloxers</b></p>
+      <p ><b class="text-ubold text-secondary">350+ </b> <b class="text-ubold text-primary">Woloxers</b></p>
 
       <div class="twitter-wx">
 
@@ -42,7 +42,7 @@
     </div>
 
     <div class="text-wrapper box">
-      <h1 class="item-text text-basic">Trabajamos para <strong class="text-primary bold">convertir </strong> <strong class="text-secondary">ideas</strong> en productos</h1>
+      <h1 class="item-text text-basic" [innerHTML]="'WE-WORK' | translate"></h1>
     </div>
   </div>
 
@@ -51,7 +51,7 @@
 
 <section class="third" id="benefits">
 
-  <h2 class="text-center">Entre los beneficios que ofrecemos se encuentran <strong class="text-primary">;)</strong></h2>
+  <h2 class="text-center"> {{'WORK-BENEFITS' | translate}} <strong class="text-primary">;)</strong></h2>
 
   <div class="card-container">
 
@@ -82,7 +82,7 @@
         </svg>
       </div>
       <div class="text-card">
-        Flexibilidad horaria
+        {{'SCHEDULE' | translate}}
       </div>
     </div>
 
@@ -127,7 +127,7 @@
         </svg>
       </div>
       <div class="text-card">
-        Capacitaciones y workshop
+        {{"WORKSHOP" | translate}}
       </div>
     </div>
 
@@ -149,7 +149,7 @@
         </svg>
       </div>
       <div class="text-card">
-        Snack, frutas y bebidas gratis
+        {{"SNACKS" | translate}}
       </div>
     </div>
 
@@ -170,7 +170,7 @@
         </svg>
       </div>
       <div class="text-card">
-        Semana remota
+        {{"REMOTE" | translate}}
       </div>
     </div>
 
@@ -206,7 +206,7 @@
         </svg>
       </div>
       <div class="text-card">
-        Trabajar en ultimas tecnologias
+        {{"TECHS" | translate}}
       </div>
     </div>
 

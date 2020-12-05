@@ -60,6 +60,16 @@ nav .content-wrapper {
   margin-left: 22px;
 }
 
+.language-buttons {
+  margin-left: 1rem;
+  .active {
+    color: $primary;
+  }
+  span {
+    cursor: pointer;
+  }
+}
+
 @media only screen and (min-device-width : 768px) {
 
   nav {
