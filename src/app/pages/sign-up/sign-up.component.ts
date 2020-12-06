@@ -28,7 +28,7 @@ export class SignUpComponent implements OnInit {
     name: ['', [Validators.maxLength(30), Validators.required]],
     last_name: ['', [Validators.maxLength(30), Validators.required]],
     mail: ['', [Validators.email, Validators.required]],
-    phone: ['', [Validators.maxLength(10), Validators.required]],
+    phone: ['', [Validators.maxLength(10), Validators.required, Validators.pattern(`^[0-9]*$`)]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     repeatPassword: ['', [Validators.required]],
     country: ['', [Validators.required]],
@@ -87,10 +87,14 @@ export class SignUpComponent implements OnInit {
     const repeatPassword = group.get('repeatPassword');
 
     if (password?.value && repeatPassword?.value && (password?.value !== repeatPassword?.value)) {
-      return group.get('repeatPassword')?.setErrors({passwordNotMatch: true});
+      return repeatPassword?.setErrors({passwordNotMatch: true});
     }
 
-    return group.get('repeatPassword')?.setErrors(null);
+    repeatPassword?.setErrors({passwordNotMatch: null});
+
+    if (repeatPassword?.touched) {
+      repeatPassword?.updateValueAndValidity({onlySelf: true});
+    }
   }
 
 }

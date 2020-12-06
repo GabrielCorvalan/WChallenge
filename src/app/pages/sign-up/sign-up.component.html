@@ -27,7 +27,7 @@
         </div>
 
         <div class="input-wrapper">
-          <input formControlName="phone" type="text">
+          <input formControlName="phone" type="text" [customErrors]="{pattern: 'Solo se aceptan numeros'}">
           <label data-label="Telefono"></label>
         </div>
 
@@ -60,7 +60,7 @@
       <div class="fields-container">
 
         <div class="input-wrapper">
-          <input formControlName="password" type="password">
+          <input formControlName="password" type="password" [customErrors]="{pattern: 'La contraseña debe ser alfanumerica'}">
           <label data-label="Contraseña"></label>
         </div>
 
@@ -81,9 +81,6 @@
     </div>
 
     <button class="sign-up button-outline-primary" type="submit">Sign Up</button>
-
-
-
 
 
   </form>

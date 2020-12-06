@@ -100,7 +100,7 @@ export class TechListsComponent implements OnInit {
     return filtered;
   }
 
-  filteredProperty(techName: string): void {
+  enableDisableFilterByTechName(techName: string): void {
     if (this.enabledFilters.find(enableFilter => enableFilter === techName)) {
       this.enabledFilters = this.enabledFilters.filter(enableFilter => enableFilter !== techName)
     } else { this.enabledFilters.push(techName) }
@@ -108,7 +108,12 @@ export class TechListsComponent implements OnInit {
     this.searchControl.setValue(this.searchControl.value);
   }
 
-  ShowHideFilters(): void {
+  isFilterActive(techName: string): any {
+    const finded = this.enabledFilters.find(filterEnabled => filterEnabled === techName);
+    return finded;
+  }
+
+  showHideFilters(): void {
     const element = document.getElementById('filter-wrapper');
     if (element?.classList.contains('display-none')) {
       element?.classList.remove('display-none');
@@ -119,11 +124,6 @@ export class TechListsComponent implements OnInit {
 
   get orderIsAsc(): boolean {
     return this.order.type === 'asc';
-  }
-
-  isFilterActive(techName: string): any {
-    const finded = this.enabledFilters.find(filterEnabled => filterEnabled === techName);
-    return finded;
   }
 
 }

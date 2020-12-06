@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LocalStorageService } from './../../utils/local-storage.service';
 import { AuthService } from './../../utils/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,10 +13,11 @@ export class HeaderComponent implements OnInit {
 
   token$: any;
   activeLang = 'es';
-
+  currentUrl = '';
   constructor(public authService: AuthService,
               private localStorageService: LocalStorageService,
-              private translate: TranslateService) { }
+              private translate: TranslateService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -27,6 +29,14 @@ export class HeaderComponent implements OnInit {
   changeLanguage(lang: string): void {
     this.activeLang = lang;
     this.translate.use(lang);
+  }
+
+  get intoSignupPage(): boolean {
+    return this.router.url === '/sign-up';
+  }
+
+  get intoLandingPage(): boolean {
+    return this.router.url === '/' || this.router.url.includes('/#');
   }
 
 }
