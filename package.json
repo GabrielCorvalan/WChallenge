@@ -6,7 +6,7 @@
     "start": "ng serve --host 0.0.0.0 --proxy-config proxy.conf.json",
     "first-init": "npm install && ng serve --host 0.0.0.0",
     "build": "ng build",
-    "test": "ng test --proxy-config proxy.conf.json",
+    "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
