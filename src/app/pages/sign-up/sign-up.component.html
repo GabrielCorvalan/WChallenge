@@ -27,7 +27,7 @@
         </div>
 
         <div class="input-wrapper">
-          <input formControlName="phone" type="text">
+          <input formControlName="phone" type="text" [customErrors]="{pattern: 'Solo se aceptan numeros'}">
           <label data-label="Telefono"></label>
         </div>
 
@@ -38,7 +38,7 @@
         <div class="container" >
           <div class="select" controlErrorContainer>
             <select formControlName="country">
-              <label>Pais</label>
+              <option value="null" >Seleccionar Pais</option>
               <option *ngFor="let country of countries" [ngValue]="country" >{{country.description}}</option>
             </select>
             <span class="focus"></span>
@@ -48,7 +48,7 @@
         <div class="container" >
           <div class="select" controlErrorContainer>
             <select formControlName="province">
-              <label>Provincias</label>
+              <option value="null" >Seleccionar Provincia</option>
               <option *ngFor="let province of provinces" [ngValue]="province" >{{province.description}}</option>
             </select>
             <span class="focus"></span>
@@ -60,7 +60,7 @@
       <div class="fields-container">
 
         <div class="input-wrapper">
-          <input formControlName="password" type="password">
+          <input formControlName="password" type="password" [customErrors]="{pattern: 'La contraseña debe ser alfanumerica'}">
           <label data-label="Contraseña"></label>
         </div>
 
@@ -81,9 +81,6 @@
     </div>
 
     <button class="sign-up button-outline-primary" type="submit">Sign Up</button>
-
-
-
 
 
   </form>

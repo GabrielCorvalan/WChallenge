@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -40,9 +41,6 @@ export class SignUpService {
   }
 
   signUp(payload: IUser): Observable<any> {
-    return of({
-      token: 'qiowAS9ndnjLKSS32LaLAPlDKL2'
-    })
-    // return this.http.post(`${environment.url}/signup`, payload);
+    return this.http.post(`${environment.url}/signup`, payload);
   }
 }

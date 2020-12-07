@@ -26,8 +26,8 @@
     <li> <a [routerLink]="['/']" fragment="benefits" class="menu-item navbar-text bold"> {{"BENEFITS" | translate}} </a> </li>
     <li *ngIf="authService.isLogged"> <a [routerLink]="['/tech-list']" class="menu-item navbar-text bold"> {{"TECHNOLOGIES" | translate}} </a> </li>
     <a *ngIf="numberFavoritesTechs" class="menu-item navbar-text bold badge-wrapper"> {{"FAVS" | translate}} <span class="badge">{{numberFavoritesTechs}}</span> </a>
-    <a *ngIf="!authService.isLogged" routerLink="/sign-up" class="sign-up button-outline-primary">{{"SIGNUP" | translate}}</a>
-    <a class="menu-item language-buttons"><span (click)="changeLanguage('en')" [class.active]="activeLang == 'en'">EN</span> | <span (click)="changeLanguage('es')" [class.active]="activeLang == 'es'">ES</span></a>
+    <a *ngIf="!intoSignupPage && !authService.isLogged" routerLink="/sign-up" class="sign-up button-outline-primary">{{"SIGNUP" | translate}}</a>
+    <a *ngIf="intoLandingPage" class="menu-item language-buttons"><span (click)="changeLanguage('en')" [class.active]="activeLang == 'en'">EN</span> | <span (click)="changeLanguage('es')" [class.active]="activeLang == 'es'">ES</span></a>
   </ul>
 
 </header>
