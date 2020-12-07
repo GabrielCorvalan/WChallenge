@@ -2,7 +2,7 @@
 
   <div class="search-filters">
     <div class="input-wrapper">
-      <input [formControl]="searchControl" type="text" class="form-control">
+      <input [formControl]="searchControl" type="text" class="form-control search-input">
       <label data-label="Busqueda">	</label>
     </div>
 
@@ -13,7 +13,7 @@
   <!-- // Responsive filters -->
   <div class="filters-wrapper" id="filter-wrapper">
     <div class="filter">Tecnologia
-      <i (click)="setOrderProperty('tech')"
+      <i (click)="setOrderByProperty('tech')"
         class="fas order-icon"
         [ngClass]="{'fa-arrow-down': orderIsAsc, 'fa-arrow-up': !orderIsAsc}"
       ></i>ks
@@ -56,7 +56,7 @@
       <tr>
         <th>Logo</th>
         <th>Tecnologia
-          <i (click)="setOrderProperty('tech')"
+          <i (click)="setOrderByProperty('tech')"
             class="fas order-icon"
             [ngClass]="{'fa-arrow-down': orderIsAsc, 'fa-arrow-up': !orderIsAsc}"
           ></i>

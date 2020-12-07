@@ -67,7 +67,7 @@ export class TechListsComponent implements OnInit {
     )
   }
 
-  setOrderProperty(orderProperty: string): void {
+  setOrderByProperty(orderProperty: string): void {
     this.order = {
       type: this.order.type === 'asc' ? 'desc' : 'asc',
       orderProperty
@@ -95,7 +95,7 @@ export class TechListsComponent implements OnInit {
 
   filterTechsByProperty(property: string, searchValue: any): Array<ITech> {
     const filtered = this.techs.filter(
-      (technology: any) => technology[property].toLocaleLowerCase().includes(searchValue)
+      (technology: any) => technology[property].toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
     );
     return filtered;
   }
