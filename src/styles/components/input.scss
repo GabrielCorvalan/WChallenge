@@ -1,0 +1,98 @@
+.input-wrapper {
+  position: relative;
+  margin: .7em 0;
+  width: 100%;
+	input {
+
+    outline: none;
+    &.ng-invalid.ng-touched {
+      border: 1px solid red;
+      color: red;
+    }
+
+    box-sizing: border-box;
+		&[type="text"], &[type="password"]  {
+			display: block;
+			width: 100%;
+			height: 42px;
+			font-size: 14px;
+			line-height: 1.4;
+			color: #000000;
+      background: rgba(18,38,170,.05);
+      padding: 6px 0 0 12px;
+      border-radius: 6px;
+			&:focus {
+				~ label {
+					&:before {
+						font-size: 12px;
+						bottom: 34px;
+            color: $primary;
+            top: 3px;
+					}
+					&:after {
+						background-repeat: no-repeat;
+            background-size: 1000% 1000%;
+            color: rgba(18,38,170,.05);
+            top: 3px;
+					}
+				}
+      }
+      &:disabled {
+        border: .05rem dashed #4a4f54;
+      }
+      &:enabled.ng-valid, &:enabled.ng-untouched {
+        border: .05rem solid rgba(18,38,170,.05);
+        &:focus, &:active {
+          outline: none;
+          box-shadow: none;
+          color: #000000;
+          border-color: $primary;
+        }
+      }
+
+			&:not(:placeholder-shown) {
+				~ label {
+					&:before {
+						font-size: 12px;
+						bottom: 34px;
+            color: #626366;
+            top: 3px;
+					}
+				}
+      }
+
+		}
+	}
+	label {
+		&:before {
+			content: attr(data-label);
+			display: block;
+			position: absolute;
+      left: 1em;
+      bottom: .9em;
+      color: #626366;
+			transition: all .15s ease-in-out;
+		}
+		&:after {
+			content: '';
+			position: absolute;
+			display: inline-flex;
+			text-decoration: none;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			bottom: 0;
+      left: 0;
+      top: 3px;
+			width: 100%;
+			height: 2px;
+			transition: all 0.4s ease-in-out;
+			background-position: 50%;
+			background-size: 200% 200%;
+		}
+	}
+}
+
+form.submitted input.ng-invalid, input.ng-dirty.ng-invalid {
+  border: 1px solid red;
+}

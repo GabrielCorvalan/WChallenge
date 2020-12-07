@@ -1,27 +1,89 @@
 <div class="page-container" >
 
-  <form [formGroup]="signUpForm">
-    <input type="text" formControlName="nombre" placeholder="nombre">
-    <input type="text" formControlName="apellido" placeholder="Apellido">
+  <form [formGroup]="signUpForm" class="sign-up-form" (ngSubmit)="signUp()">
 
-    <select formControlName="idCountry">
-      <label>Pais</label>
-      <option *ngFor="let country of countries" [value]="country.id" >{{country.description}}</option>
-    </select>
+    <h1 class="title"> Unite a Wolox </h1>
+    <div class="sign-up-card">
 
-    <select formControlName="idCountry">
-      <label>Provincias</label>
-      <option *ngFor="let province of provinces" [value]="province.id" >{{province.description}}</option>
-    </select>
+      <div class="fields-container">
 
-    <input type="text" formControlName="email" placeholder="email">
-    <input type="text" formControlName="telefono" placeholder="teléfono">
-    <input type="text" formControlName="contrasenia" placeholder="contraseña">
+        <div class="input-wrapper">
+          <input formControlName="name" type="text" class="form-control">
+          <label data-label="Nombre">		</label>
+        </div>
+
+        <div class="input-wrapper">
+          <input formControlName="last_name" type="text">
+          <label data-label="Apellido"></label>
+        </div>
+
+      </div>
+
+      <div class="fields-container">
+
+        <div class="input-wrapper">
+          <input formControlName="mail" type="text">
+          <label data-label="Correo Electronico"></label>
+        </div>
+
+        <div class="input-wrapper">
+          <input formControlName="phone" type="text" [customErrors]="{pattern: 'Solo se aceptan numeros'}">
+          <label data-label="Telefono"></label>
+        </div>
+
+      </div>
+
+      <div class="fields-container">
+
+        <div class="container" >
+          <div class="select" controlErrorContainer>
+            <select formControlName="country">
+              <option value="null" >Seleccionar Pais</option>
+              <option *ngFor="let country of countries" [ngValue]="country" >{{country.description}}</option>
+            </select>
+            <span class="focus"></span>
+          </div>
+        </div>
+
+        <div class="container" >
+          <div class="select" controlErrorContainer>
+            <select formControlName="province">
+              <option value="null" >Seleccionar Provincia</option>
+              <option *ngFor="let province of provinces" [ngValue]="province" >{{province.description}}</option>
+            </select>
+            <span class="focus"></span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="fields-container">
+
+        <div class="input-wrapper">
+          <input formControlName="password" type="password" [customErrors]="{pattern: 'La contraseña debe ser alfanumerica'}">
+          <label data-label="Contraseña"></label>
+        </div>
+
+        <div class="input-wrapper">
+          <input formControlName="repeatPassword" type="password">
+          <label data-label="Repetir Contraseña"></label>
+        </div>
+
+      </div>
+
+      <div class="tyc-container" controlErrorContainer>
+        <input type="checkbox" class="checkbox" formControlName="termsAndConditions" [customErrors]="customErrors">
+        <div class="tyc-container_terms">
+          Acepto los <a target="_blank" href="https://google.com.ar">Términos y Condiciones</a> y autorizo el uso de mis datos de acuerdo a la <a target="_blank" href="https://www.google.com.ar/privacidad">Declaración de Privacidad</a>.
+        </div>
+      </div>
+
+    </div>
+
+    <button class="sign-up button-outline-primary" type="submit">Sign Up</button>
 
 
-    <button type="submit" (click)="submit()">Submit</button>
   </form>
 
-
-
 </div>
+

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _route: ActivatedRoute) {
 
-  ngOnInit(): void {
   }
 
+  ngOnInit(): void {
+    this._route.fragment.subscribe(
+      fragment => document.querySelector(`#${fragment}`)?.scrollIntoView({ behavior: 'smooth' })
+    );
+  }
 }
