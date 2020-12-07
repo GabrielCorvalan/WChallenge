@@ -38,7 +38,7 @@
         <div class="container" >
           <div class="select" controlErrorContainer>
             <select formControlName="country">
-              <label>Pais</label>
+              <option value="null" >Seleccionar Pais</option>
               <option *ngFor="let country of countries" [ngValue]="country" >{{country.description}}</option>
             </select>
             <span class="focus"></span>
@@ -48,7 +48,7 @@
         <div class="container" >
           <div class="select" controlErrorContainer>
             <select formControlName="province">
-              <label>Provincias</label>
+              <option value="null" >Seleccionar Provincia</option>
               <option *ngFor="let province of provinces" [ngValue]="province" >{{province.description}}</option>
             </select>
             <span class="focus"></span>
